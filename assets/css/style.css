@@ -1,0 +1,13 @@
+body {
+    background: radial-gradient(circle, white, pink);
+    font-size: 18px;
+  }
+
+h1 {
+    padding: 10px 150px 10px 150px;
+    text-align: center;
+}
+.row {
+    padding: 10px 150px 10px 150px;
+    text-align: center;
+}
