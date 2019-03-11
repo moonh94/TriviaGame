@@ -1,40 +1,98 @@
-//write out a various questions
-    //answers in a string that are linked to buttons
-//set a timer and have the time show via .text
-//have the timer start with a click event for start. 
-//hide questions until start is pressed
-//or set alert to warn the player the game is about to start.
-//set booleans for the answer choices, increase correct or incorrect
-//when time runs out, show score, no longer can click on the answers
-
+$("input[type=radio]").attr('disabled', true);
 
 //variables for the clock: 
-var time = 60000;
+var time = 30;
 var clockRunning = false;
-$("#display").html("01:00");
+currentTime = timeConverter(time);
+function timeConverter(t) {
+
+  //  Takes the  time in seconds and convert it to minutes and seconds (mm:ss).
+  var minutes = Math.floor(t / 60);
+  var seconds = t - (minutes * 60);
+
+  if (seconds < 10) {
+    seconds = "0" + seconds;
+  }
+
+  if (minutes === 0) {
+    minutes = "00";
+  }
+
+  else if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
+
+  return minutes + ":" + seconds;
+}
 
 
-//functions for the clock: 
-if (!clockRunning){
-    var currentTime = timeConverter(time);
-    time.decrement(1000);
-    $("#startButton").on("click", function() {
-        $("#display").text(currentTime);
+//timer
+document.getElementById("timer").innerHTML = "Seconds: 30";
+$("#startButton").on("click", function () {
+  var Timer = setInterval(function () {
+    document.getElementById("timer").innerHTML = "Seconds: " + time;
+    time--;
+    $("input[type=radio]").attr('disabled', false);
+    
+    if (time <= 0) {
+      $("input[type=radio]").attr('disabled', true);
+      clearInterval(Timer);
+      document.getElementById("timer").innerHTML = "Time Up!";
+      alert("Time's up! Please press submit");
+      
     }
-    )}
+  }, 1000);
+});
 
-//shows the amount of time to start with
-$("#display").text("01:00");
-function count() {
-    //decrease time
-      decrement.time;
-   //get current time
-      var currentTime = timeConverter(time);
-    //  TODO: Use the variable you just created to show the converted time in the "display" div.
-      $("#display").text(currentTime);
+var correct =0;
+var losses =0;
 
-var answerChoicesQ1 = ["green", "white", "blue", ];
-var answerChoicesQ2 = ["bananas", "coconuts", "pineapples"];
-var answerChoicesQ3 = ["pickles", "honey", "flour"],
+function check() {
+var ques1 = document.trivia.q1.value;
+var ques2 = document.trivia.q2.value;
+var ques3 = document.trivia.q3.value;
+var ques4 = document.trivia.q4.value;
+var ques5 = document.trivia.q5.value;
+// var correct =0;
+// var losses =0;
 
-$("#1").append("<button>green</button>");
+    if (ques1 === "green") {
+      correct++;
+  } 
+  else{ 
+    losses++;
+  }
+    if (ques2 === "coconuts") {
+      correct++;
+    } 
+    else { 
+      losses++;
+    }
+    if (ques3 === "honey") {
+      correct++;
+    } 
+    else{ 
+      losses++;
+    }
+    if (ques4 === "twelve") {
+      correct++;
+    } 
+    else{ 
+      losses++;
+    }
+    if (ques5 === "55 miles") {
+      correct++;
+    } 
+    else{ 
+      losses++;
+    }
+    
+document.getElementById("button").style.visibility = "visible";
+alert("Correct: " + correct + "Wrong: " + losses);
+console.log("Correct: " + correct + " Wrong: " + losses);
+
+
+
+}
+
+

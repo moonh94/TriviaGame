@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel=stylesheet type="text/css" href="assets/css/style.css">
 
   <title>Trivia Game</title>
@@ -15,40 +14,57 @@
 
   <div class="containter">
     <h1>Trivia!</h1>
+    <div id="instructions">
+        <h4>You have 30 seconds to answer the trivia questions below!</h4>
+        </div>
     <div class="row">
       <div>
-        <h4>TIMER: <div id="display"></div></h4>
+          <div id="display"></div>
+            <h4 id="timer"></h4>
+    
         <button typ="button" id="startButton">Start</button>
       </div>
       <div class="row">
-        <p id="q1"> Question 1: What color would Coca-Cola be without the added food coloring? -green
-          <br>
-          <span>
-            <button type="button" id="1" class="btn btn-outline-dark" class="btn btn-primary btn-sm">Dark</button>
-            <button type="button" id="2" class="btn btn-outline-dark" class="btn btn-primary btn-sm">Dark</button>
-            <button type="button" id="3" class="btn btn-outline-dark" class="btn btn-primary btn-sm">Dark</button>
-          </span>
-        </p>
+        <form id="trivia" name="trivia">
+          <p>Question 1: What color would Coca-Cola be without the added food coloring?
+            <br>
+            <input type = "radio" id="answerChoice" name="q1" value ="green"> green <br>
+            <input type = "radio" id="answerChoice" name="q1" value ="white"> white <br>
+            <input type = "radio" id="answerChoice" name="q1" value ="blue"> blue <br>
+            <br>
+            <p>Question 2: About 150 people are killed from?
+              <br>
+                <input type = "radio" id="answerChoice" name="q2" value ="bananas"> bananas <br>
+                <input type = "radio" id="answerChoice" name="q2" value ="coconuts"> coconuts <br>
+                <input type = "radio" id="answerChoice" name="q2" value ="pineapples"> pineapples <br>
+                <br>
+            <p>Question 3: What food never spoils?
+              <br>
+                <input type = "radio" id="answerChoice" name="q3" value ="pickles"> pickles <br>
+                <input type = "radio" id="answerChoice" name="q3" value ="honey"> honey <br>
+                <input type = "radio" id="answerChoice" name="q3" value ="flour"> flour <br>
+                <br>   
+            <p>Question 4: How many months have 28 days in them?
+                <br>
+                <input type = "radio" id="answerChoice" name="q4" value ="one"> one <br>
+                <input type = "radio" id="answerChoice" name="q4" value ="twelve"> twelve <br>
+                <input type = "radio" id="answerChoice" name="q4" value ="none"> none <br>
+                <br> 
+            <p>Question 5: How long is New Zealand's Ninety Mile Beach?
+                <br>
+                <input type = "radio" id="answerChoice" name="q5" value ="150 miles"> 150 miles <br>
+                <input type = "radio" id="answerChoice" name="q5" value ="90 miles"> 90 miles <br>
+                <input type = "radio" id="answerChoice" name="q5" value ="55 miles"> 55 miles <br>
+                <br>       
+                    
+        <input id="button" type="button" value=Submit onclick="check();">
+        </form>
         <br>
         <br>
-        <p id="q2"> Question 2: About 150 people are killed from? -coconuts
-          <br>
-          <span>
-            <button type="button" id="4" class="btn btn-outline-dark" class="btn btn-primary btn-sm">Dark</button>
-            <button type="button" id="5" class="btn btn-outline-dark" class="btn btn-primary btn-sm">Dark</button>
-            <button type="button" id="6" class="btn btn-outline-dark" class="btn btn-primary btn-sm">Dark</button>
-          </span>
-        </p>
-        <br>
-        <br>
-        <p id="q3"> Question 3: What food never spoils? -honey
-          <br>
-          <span>
-            <button type="button" id="7" class="btn btn-outline-dark" class="btn btn-primary btn-sm">Dark</button>
-            <button type="button" id="8" class="btn btn-outline-dark" class="btn btn-primary btn-sm">Dark</button>
-            <button type="button" id="9" class="btn btn-outline-dark" class="btn btn-primary btn-sm">Dark</button>
-          </span>
-        </p>
+        <div id="afterSubmit">
+          <p id="results"></p>
+          </div>
+      
       </div>
     </div>
 
@@ -56,7 +72,7 @@
 
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" href="assets/javascript/apps.js"></script>
+    <script type="text/javascript" src="./assets/javascript/app.js"></script>
 </body>
 
 </html>

@@ -11,3 +11,11 @@ h1 {
     padding: 10px 150px 10px 150px;
     text-align: center;
 }
+h4 {
+    margin: 0px;
+    text-align: center;
+}
+
+#afterSubmit {
+    visibility: hidden;
+}
